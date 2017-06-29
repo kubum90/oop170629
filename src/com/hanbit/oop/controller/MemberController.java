@@ -20,18 +20,26 @@ public class MemberController {
 			String password = s.next();
 			System.out.println("ssn?");
 			String ssn = s.next();
+			ms.setName(name);
+			ms.setId(id);
+			ms.setPassword(password);
+			ms.setSsn(ssn);
+			ms.setAge();
+			ms.setGender();
+			
 			System.out.println("회원가입 성공!!");
+			System.out.println();
 			break;
 			case "2":
 			System.out.println("id?");
 			String loginId = s.next();
+			ms.setLoginID(loginId);
 			System.out.println("password?");
-			String loginPass = s.next();
-			ms.setLogin(loginId, loginPass);
+			String loginPW = s.next();
+			ms.setLoginPW(loginPW);
+			ms.setBranch();
 			
-			
-			//.......
-			System.out.println(ms.getLogin());
+			System.out.println(ms.getBranch());
 			break;
 			default:
 			break;
