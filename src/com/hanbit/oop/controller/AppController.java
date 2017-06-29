@@ -4,6 +4,7 @@ import java.util.Scanner;
 import com.hanbit.oop.service.BmiService;
 import com.hanbit.oop.service.CalcService;
 import com.hanbit.oop.service.GradeReportService;
+import com.hanbit.oop.service.GradeService;
 import com.hanbit.oop.service.LeapYearService;
 import com.hanbit.oop.service.LoginService;
 import com.hanbit.oop.service.TimeService;
@@ -11,14 +12,15 @@ import com.hanbit.oop.service.TimeService;
 public class AppController {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		BmiService s2 = new BmiService();
+		BmiService bs = new BmiService();
 		LeapYearService s3 = new LeapYearService();
 		GradeReportService grs = new GradeReportService();
 		TimeService ts = new TimeService();
 		LoginService ls = new LoginService();
 		CalcService cs = new CalcService();
+		GradeService g = new GradeService();
 		while (true) {
-			System.out.println("0.end 1.LeapYear 2.bmi 3.GradeReportService 4.Time 5.Login 6.Calc");
+			System.out.println("0.end 1.LeapYear 2.bmi 3.GradeReportService 4.Time 5.Login 6.Calc 7.BmiService");
 			switch (s.next()) {
 			case "0":
 				System.out.println("end");
@@ -69,14 +71,40 @@ public class AppController {
 				System.out.print(login);
 				break;
 			case "6":
-				System.out.print("나의 체질량지수(BMI)는?\n");
-				System.out.print("주의 : 키가 179cm일 경우 1.79로 표기\n");
-				System.out.print("신장: ");
-				double height1 = s.nextDouble();
-				System.out.print("몸무게: ");
-				weight = s.nextDouble();
-				String state = cs.calcBmi(height1, weight);
-				System.out.println(state);
+				System.out.println("name?");
+				String name2 = s.next();
+				g.setName(name2);
+				System.out.println("major?");
+				String major = s.next();
+				g.setmajor(major);
+				
+				System.out.println("국어점수?");
+				int kor2 = s.nextInt();
+				g.setKor(kor2);
+				System.out.println("영어점수?");
+				int eng2 = s.nextInt();
+				g.setEng(eng2);
+				System.out.println("수학점수?");
+				int math2 = s.nextInt();
+				g.setMath(math2);
+				g.setGrade();
+				
+				System.out.println(g.toString());
+				break;
+			case "7" : 
+				System.out.println("신장을 입력하세요");
+				System.out.println("weight");
+				double weight2 = s.nextDouble();
+				System.out.println("체중을 입력하세요");
+				System.out.println("height");
+				double height2 = s.nextDouble();
+				bs.setWeight(weight2);
+				bs.setHeight(height2);
+				bs.setBmi();
+				bs.setState();
+				
+				System.out.println(bs.getState());
+				
 				break;
 			}
 		}
