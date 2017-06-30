@@ -1,45 +1,29 @@
 package com.hanbit.oop.controller;
-import java.util.Scanner;
+import com.hanbit.oop.domain.MemberBean;
 import com.hanbit.oop.service.MemberService;
+import javax.swing.*;
+
 public class MemberController {
 	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
 		MemberService ms = new MemberService();
+		MemberBean member = new MemberBean();
 		while(true){
-			System.out.println("0.종료 1.join 2.login");
-			switch (s.next()) {
+			switch (JOptionPane.showInputDialog("0.종료 1.join 2.login")) {
 			case "0":
-			System.out.println("System 종료");
+			JOptionPane.showMessageDialog(null, "시스템 종료");
 			return;
 			case "1":
-			System.out.println("이름?");
-			String name = s.next();
-			System.out.println("id?");
-			String id = s.next();
-			System.out.println("password?");
-			String password = s.next();
-			System.out.println("ssn?");
-			String ssn = s.next();
-			ms.setName(name);
-			ms.setId(id);
-			ms.setPassword(password);
-			ms.setSsn(ssn);
-			ms.setAge();
-			ms.setGender();
-			
-			System.out.println("회원가입 성공!!");
-			System.out.println();
+			member.setName(JOptionPane.showInputDialog("name"));
+			member.setId(JOptionPane.showInputDialog("ID"));
+			member.setPassword(JOptionPane.showInputDialog("PASS"));
+			member.setSsn(JOptionPane.showInputDialog("SSN"));
+			JOptionPane.showMessageDialog(null, ms.join(member));
 			break;
 			case "2":
-			System.out.println("id?");
-			String loginId = s.next();
-			ms.setLoginID(loginId);
-			System.out.println("password?");
-			String loginPW = s.next();
-			ms.setLoginPW(loginPW);
-			ms.setBranch();
-			
-			System.out.println(ms.getBranch());
+			member = new MemberBean();
+			member.setId(JOptionPane.showInputDialog("ID?"));
+			member.setPassword((JOptionPane.showInputDialog("password?")));
+			JOptionPane.showMessageDialog(null, ms.login(member));
 			break;
 			default:
 			break;

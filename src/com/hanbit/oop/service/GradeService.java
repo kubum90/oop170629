@@ -1,41 +1,17 @@
 package com.hanbit.oop.service;
+
+import com.hanbit.oop.domain.GradeBean;
+
 public class GradeService {
-	//field
-	private int kor2,eng2,math2,total,avg;
-	private String grade,name,major;
-	public void setKor(int kor2){
-		this.kor2=kor2;
+	
+	public int calcTotal(GradeBean g){
+		return g.getKor() + g.getEng() + g.getMath();
 	}
-	public void setEng(int eng2){
-		this.eng2 = eng2;
+	public int calcAvg(int total){
+		return total/3;
 	}
-	public void setMath(int math2){
-		this.math2 = math2;
-	}
-	public int getKor(){
-		return kor2;
-	}
-	public int getEng(){
-		return eng2;
-	}
-	public int getMath(){
-		return math2;
-	}
-	public void setTotal(){
-		this.total=kor2 + eng2 + math2;
-	}
-	public int getTotal(){
-		return total;
-	}
-	public void setAvg(){
-		this.avg=total/3;
-	}
-	public int getAvg(){
-		return avg;
-	}
-	public void setGrade() {
-		setTotal();
-		setAvg();
+	public String getGrade(int avg) {
+		String grade="";
 		switch (avg / 10) {
 		case 10:
 		case 9:
@@ -57,27 +33,7 @@ public class GradeService {
 			grade = "학사 경고";
 			break;
 		}
+		return grade;
 	}
-	public String getGrade(){
-		return this.grade;
-	}
-	public void setName(String name){
-		this.name = name;
-	}
-	public String getName(){
-		return name;
-	}
-	public void setmajor(String major){
-		this.major = major;
-	}
-	public String getMajor(){
-		return major;
-	}
-	public String toString(){
-		return "============================================\n"
-				+"이름    전공                 성적\n"
-				+"------------------------------------------"
-				+"name"+"\t"+major+"/t"+grade+"\n"
-				+"=========================================";
-	}
+	
 }
