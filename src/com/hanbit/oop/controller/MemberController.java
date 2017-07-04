@@ -1,11 +1,13 @@
 package com.hanbit.oop.controller;
+import javax.swing.JOptionPane;
+
 import com.hanbit.oop.domain.MemberBean;
-import com.hanbit.oop.service.MemberService;
-import javax.swing.*;
+import com.hanbit.oop.serviceImpl.MemberServiceImpl;
+import com.hanbit.oop.sevice.MemberService;
 
 public class MemberController {
 	public static void main(String[] args) {
-		MemberService ms = new MemberService();
+		MemberService ms = new MemberServiceImpl();
 		MemberBean member = new MemberBean();
 		while(true){
 			switch (JOptionPane.showInputDialog("0.종료 1.join 2.login")) {

@@ -1,4 +1,4 @@
-package com.hanbit.oop.service;
+package com.hanbit.oop.serviceImpl;
 
 public class GradeReportService {
 	public String grade(int kor, int eng, int math,String name) {

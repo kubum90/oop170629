@@ -1,11 +1,12 @@
 package com.hanbit.oop.controller;
-import com.hanbit.oop.domain.GradeBean;
-import com.hanbit.oop.service.GradeService;
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
+import com.hanbit.oop.domain.GradeBean;
+import com.hanbit.oop.serviceImpl.GradeServiceImpl;
+import com.hanbit.oop.sevice.GradeService;
 public class GradeController {
 	public static void main(String[] args) {
-		GradeService gradeService = new GradeService();
+		GradeService gradeService = new GradeServiceImpl();
 		GradeBean gradeBean = new GradeBean();
 		while (true) {
 			switch (JOptionPane.showInputDialog("0.exit 1.Grade Calc")) {
@@ -18,10 +19,8 @@ public class GradeController {
 				gradeBean.setKor(Integer.parseInt(JOptionPane.showInputDialog("kor???")));
 				gradeBean.setMath(Integer.parseInt(JOptionPane.showInputDialog("math???")));
 				gradeBean.setEng(Integer.parseInt(JOptionPane.showInputDialog("eng????")));
-				//JOptionPane.showMessageDialog(null, gradeService.getGrade(gradeService.calcAvg(gradeService.calcTotal(gradeBean))));
-				//23번,25번 line 같은 코드. 개쩜
-				JOptionPane.showMessageDialog(null,gradeService.getGrade(gradeService.calcAvg(gradeService.calcTotal(gradeBean)))); 
-				//System.out.println(grade.toString());
+				//JOptionPane.showMessageDialog(null,gradeService.getGrade(gradeService.calcAvg(gradeService.calcTotal(gradeBean))));
+				JOptionPane.showMessageDialog(null, gradeService.getGrade(gradeService.calcAvg(gradeService.calcTotal(gradeBean))));
 				break;
 			}
 		}

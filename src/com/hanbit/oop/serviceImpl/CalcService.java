@@ -1,4 +1,4 @@
-package com.hanbit.oop.service;
+package com.hanbit.oop.serviceImpl;
 public class CalcService {
 	public String calcBmi(double height , double weight) {
 		double result = 0;

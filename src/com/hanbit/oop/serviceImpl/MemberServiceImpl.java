@@ -1,11 +1,14 @@
-package com.hanbit.oop.service;
-import javax.swing.JOptionPane;
+package com.hanbit.oop.serviceImpl;
+
 import com.hanbit.oop.domain.MemberBean;
-public class MemberService {
+import com.hanbit.oop.sevice.MemberService;
+
+public class MemberServiceImpl implements MemberService{
 	MemberBean session;
-	public MemberService(){
+	public MemberServiceImpl(){
 		session = new MemberBean();		
 	}
+	@Override
 	public String getGender(MemberBean member) {
 		String gender="";
 		char ch = member.getSsn().charAt(7);
@@ -27,8 +30,8 @@ public class MemberService {
 		}
 		return gender;
 	}
-	
-	//삼항연산자 만들기
+
+	@Override
 	public String getAge(MemberBean member) {
 		int age=0;
 		int year=Integer.parseInt(member.getSsn().substring(0,2));
@@ -39,21 +42,19 @@ public class MemberService {
 			age=(2017-(year+1900)+1);
 		}
 		return String.valueOf(age);
-		
-		
 	}
-	public String join(MemberBean member){
+
+	@Override
+	public String join(MemberBean member) {
 		session=member;
 		String result="welcome"+session.getId();
 		//session에다가 회원가입시 입력한 정보를 저장하는 소스
 		return result;
 	}
+
+	@Override
 	public String login(MemberBean member) {
-		//session = member;
 		return (session.getId().equals(member.getId())&&session.getPassword().equals(member.getPassword()) ? "SUCCESS" : "로그인 실패");
-	}
-	public String toString(){
-		return "로그인 됐습니다. 환영합니다! " +session.getId()+"님";
 	}
 
 }

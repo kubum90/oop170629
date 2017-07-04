@@ -28,6 +28,6 @@ public class MemberBean {
 		return name;
 	}
 	public String toString() {
-		return "";
+		return String.format("이름:%s 아이디:%s 비밀번호:%s 주민번호:%s", name,id,password,ssn);
 	}
 }
